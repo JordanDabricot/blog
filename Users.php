@@ -6,6 +6,7 @@
  * Time: 14:29
  */
 
+
 class Users{
     private $id;
     private $login;
@@ -118,6 +119,4 @@ class Users{
     {
         $this->subscrDate = $subscrDate;
     }
-
-
 }

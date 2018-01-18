@@ -6,6 +6,7 @@
  * Time: 14:31
  */
 
+
 class Articles{
     private $title;
     private $content;
@@ -64,5 +65,10 @@ class Articles{
     public function setPublishDate($publishDate)
     {
         $this->publishDate = $publishDate;
+    }
+
+    public function getArticle(){
+        $bdd = new BDDconnect('blog');
+
     }
 }
