@@ -2,7 +2,7 @@
 session_start();
 
 function sessionExiste(){
-    if($_SESSION['login']){
+    if(isset($_SESSION['login'])){
         echo '<li><a href="#">'.ucfirst($_SESSION['login']).'</a></li>
               <li><a href="PublishTemplate.php">Publier</a></li>
               <li><a href="Deconnect.php">Déconnexion</a></li>';

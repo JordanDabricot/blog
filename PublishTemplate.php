@@ -38,3 +38,22 @@ require 'Publish.php';
         </div>
     </div>
 </body>
+<?php
+if (isset($_POST['submit'])) {
+    if (isset($_POST['title']) && isset($_POST['content'])) {
+        $title = $_POST['title'];
+        $content = $_POST['content'];
+        $publish = new Publish($title, $content);
+        $publish->addArticle();
+        echo '<div class="row">
+                <div class="input-field col s12">
+                    <p>Article Publiée</p>
+                </div>
+              </div>';
+        header("refresh:5;url=index.php");
+    } else {
+        echo 'les champs ne sont pas remplis';
+    }
+}
+
+?>

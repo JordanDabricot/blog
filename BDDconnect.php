@@ -24,7 +24,7 @@ class BDDconnect {
 
     public function getPDO(){
         if($this->pdo===null){
-            $pdo = new PDO('mysql:dbname=blog;host=localhost','root','root');
+            $pdo = new PDO('mysql:dbname=blog;host=localhost','root','Jd0409Pm');
             $pdo->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION);
             $this->pdo =$pdo;
         }

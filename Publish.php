@@ -20,6 +20,6 @@ class Publish extends Articles {
     public function addArticle(){
         $bdd = new BDDconnect('blog');
         $conn = $bdd->getPDO();
-        $conn->exec('INSERT INTO articles SET title="'. $this->getTitle() .'", content="'. $this->getContent() .'"');
+        $conn->exec('INSERT INTO articles SET title="'. $this->getTitle() .'", content="'. $this->getContent() .'", publishDate=NOW()');
     }
 }
