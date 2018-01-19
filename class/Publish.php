@@ -6,8 +6,10 @@
  * Time: 17:41
  */
 
-require 'BDDconnect.php';
-require 'Articles.php';
+namespace App;
+
+session_start();
+
 
 class Publish extends Articles {
 
@@ -20,6 +22,6 @@ class Publish extends Articles {
     public function addArticle(){
         $bdd = new BDDconnect('blog');
         $conn = $bdd->getPDO();
-        $conn->exec('INSERT INTO articles SET title="'. $this->getTitle() .'", content="'. $this->getContent() .'", publishDate=NOW()');
+        $conn->exec('INSERT INTO articles SET title="'. $this->getTitle() .'", content="'. $this->getContent() .'", publishDate=NOW(), user_id="'. $_SESSION['id'] .'"');
     }
 }

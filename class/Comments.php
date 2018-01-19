@@ -6,6 +6,8 @@
  * Time: 14:32
  */
 
+namespace App;
+
 class Comments{
     private $content;
     private $commentDate;

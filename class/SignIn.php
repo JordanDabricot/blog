@@ -6,10 +6,11 @@
  * Time: 15:43
  */
 
-require 'Users.php';
-require 'BDDconnect.php';
+namespace App;
 
-class SignInController extends Users{
+session_start();
+
+class SignIn extends Users{
     private $login;
     private $password;
 

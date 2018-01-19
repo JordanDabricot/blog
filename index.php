@@ -1,6 +1,6 @@
 <?php
-require 'header.php';
-require 'ArticlesTemplate.php';
+require 'Template/header.template.php';
+require 'Template/Articles.template.php';
 ?>
 
 

@@ -7,8 +7,14 @@
  * Date: 18/01/18
  * Time: 15:35
  */
-require 'header.php';
-require 'SignInController.php';
+
+
+require 'header.template.php';
+require '../class/Autoloader.php';
+
+use App\SignIn;
+use App\Autoloader;
+Autoloader::register();
 ?>
 <body>
     <div class="container">
@@ -46,14 +52,16 @@ if (isset($_POST['submit'])){
     if(isset($_POST['login']) && isset($_POST['password'])){
         $login = $_POST['login'];
         $password = sha1($_POST['password']);
-        $bdd = new SignInController($login, $password);
+        $bdd = new SignIn($login, $password);
         $data = $bdd->authUser();
         if($data[0]->login == $login && $data[0]->password == $password){
+            $_SESSION['id'] = $data[0]->id_user;
             $_SESSION['login'] = $data[0]->login;
+            $_SESSION['password'] = $data[0]->password;
             $_SESSION['email'] = $data[0]->email;
             $_SESSION['age'] = $data[0]->age;
             $_SESSION['subscrDate'] = $data[0]->subscrDate;
-            header('Location: index.php');
+            header('Location: ../index.php');
         }else{
             echo 'c\'est mort';
         }

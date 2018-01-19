@@ -6,6 +6,10 @@
  * Time: 14:31
  */
 
+namespace App;
+
+session_start();
+
 
 class Articles{
     private $title;
@@ -68,7 +72,10 @@ class Articles{
     }
 
     public function getArticle(){
-        $bdd = new BDDconnect('blog');
-
+        $datas = new BDDconnect('blog');
+        $datas = $datas->query('SELECT * FROM articles
+                                    INNER JOIN users
+                                    ON users.id_user = articles.user_id ORDER BY publishDate DESC');
+        return $datas;
     }
 }

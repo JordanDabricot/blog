@@ -6,8 +6,14 @@
  * Time: 17:52
  */
 
-require 'header.php';
-require 'Publish.php';
+require 'header.template.php';
+require '../class/Autoloader.php';
+
+use App\Publish;
+use App\Autoloader;
+Autoloader::register();
+
+
 ?>
 <body>
     <div class="container">
@@ -40,7 +46,7 @@ require 'Publish.php';
 </body>
 <?php
 if (isset($_POST['submit'])) {
-    if (isset($_POST['title']) && isset($_POST['content'])) {
+    if (isset($_POST['title']) && isset($_POST['content']) && !empty($_POST['title']) && !empty($_POST['content'])) {
         $title = $_POST['title'];
         $content = $_POST['content'];
         $publish = new Publish($title, $content);
@@ -50,7 +56,7 @@ if (isset($_POST['submit'])) {
                     <p>Article Publiée</p>
                 </div>
               </div>';
-        header("refresh:5;url=index.php");
+        header("refresh:5;url=../index.php");
     } else {
         echo 'les champs ne sont pas remplis';
     }

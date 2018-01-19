@@ -6,8 +6,8 @@
  * Time: 09:53
  */
 
-require 'BDDconnect.php';
-require 'Users.php';
+namespace App;
+
 
 class Register extends Users {
 

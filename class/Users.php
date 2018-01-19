@@ -6,6 +6,8 @@
  * Time: 14:29
  */
 
+namespace App;
+
 
 class Users{
     private $id;

@@ -1,5 +1,12 @@
 <?php
-require 'header.php';
+require 'header.template.php';
+
+require '../class/Autoloader.php';
+
+
+use App\Register;
+use App\Autoloader;
+Autoloader::register();
 ?>
 <body>
     <div class="container">
@@ -44,10 +51,8 @@ require 'header.php';
 </body>
 <?php
 
-require 'Register.php';
-
 if (isset($_POST['submit'])){
-    if (isset($_POST['login']) && isset($_POST['password']) && isset($_POST['age']) && isset($_POST['email'])){
+    if (isset($_POST['login']) && isset($_POST['password']) && isset($_POST['age']) && isset($_POST['email']) && !empty($_POST['login']) && !empty($_POST['password']) && !empty($_POST['age']) && !empty($_POST['email'])){
         $login = $_POST['login'];
         $password = sha1($_POST['password']);
         $age = $_POST['age'];
@@ -59,7 +64,7 @@ if (isset($_POST['submit'])){
                     <p>Compte enregistrer</p>
                 </div>
               </div>';
-        header("refresh:5;url=SignIn.php");
+        header("refresh:5;url=SignIn.template.php");
     }else{
         echo 'les champs ne sont pas remplis';
     }
